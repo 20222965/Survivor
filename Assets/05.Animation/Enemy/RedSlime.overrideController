@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RedSlime
+  m_Controller: {fileID: 9100000, guid: 65b976ac30d7da94098a457245ca8ddc, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 912cbcf72eb02a94aa322e3b5e83abc9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 44009c44b13d4b0449379f334f813513, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d66a93da6d66a644db0890932ea84ace, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e52676a60a0a18c4f8af861438c70130, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ef75eea7c9084f84da73e23d22b5e3e1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b77bfa7d2a990164fa7aa01e8ef5e4bd, type: 2}

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9117aae23ce1145adb7c7c626e97ab, type: 3}
+  m_Name: Item 1 W
+  m_EditorClassIdentifier: 
+  <Category>k__BackingField: 0
+  <MaxLevel>k__BackingField: 5
+  <ItemID>k__BackingField: 1
+  <ItemName>k__BackingField: "\uC5FD\uCD1D"
+  <ItemDescription>k__BackingField: "\uAC00\uAE4C\uC6B4 \uC801\uC5D0\uAC8C \uCD1D\uC54C
+    \uBC1C\uC0AC"
+  <ItemIcon>k__BackingField: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  <BulletData>k__BackingField: {fileID: 11400000, guid: 4f591ab525f2bf74da4faa04ec768aeb, type: 2}
+  <Weapon>k__BackingField: 1
+  <Damages>k__BackingField:
+  - 4.5
+  - 7
+  - 10
+  - 13
+  - 18
+  <AttackSpeeds>k__BackingField:
+  - 0
+  - 0.1
+  - 0.15
+  - 0.2
+  - 0.25
+  <Counts>k__BackingField: 0100000002000000030000000400000005000000
+  <Penetrations>k__BackingField: 
+  <Sfx>k__BackingField: 6
