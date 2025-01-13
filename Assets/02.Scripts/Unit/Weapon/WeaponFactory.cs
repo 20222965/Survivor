@@ -2,7 +2,7 @@
 
 public static class WeaponFactory
 {
-    public enum WeaponType { Orbit, TargetingGun, RandomGun }
+    public enum WeaponType { Orbit, TargetingGun, RandomGun, Explosion }
 
     public static Weapon Create(WeaponType type)
     {
@@ -17,6 +17,9 @@ public static class WeaponFactory
                 break;
             case WeaponType.RandomGun:
                 weapon = new GameObject().AddComponent<WRandomGun>();
+                break;
+            case WeaponType.Explosion:
+                weapon = new GameObject().AddComponent<WExplosion>();
                 break;
             default:
                 weapon = null;

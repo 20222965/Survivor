@@ -15,10 +15,10 @@ MonoBehaviour:
   <Category>k__BackingField: 1
   <MaxLevel>k__BackingField: 5
   <ItemID>k__BackingField: 4
-  <ItemName>k__BackingField: "\uC804\uD22C \uC7A5\uD654"
-  <ItemDescription>k__BackingField: "\uC774\uB3D9\uC18D\uB3C4 10% \uC99D\uAC00"
-  <ItemIcon>k__BackingField: {fileID: -966295699, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
-  <PassiveType>k__BackingField: 1
+  <ItemName>k__BackingField: "\uD14C\uD06C\uB2C8\uCEEC \uC7A5\uAC11"
+  <ItemDescription>k__BackingField: "\uC5F0\uC0AC\uC18D\uB3C4 10% \uC99D\uAC00"
+  <ItemIcon>k__BackingField: {fileID: -201829820, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  <PassiveType>k__BackingField: 2
   <Values>k__BackingField:
   - 0.1
   - 0.2

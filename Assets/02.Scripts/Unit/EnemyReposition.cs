@@ -21,6 +21,5 @@ public class EnemyReposition : MonoBehaviour
             Vector3 rand = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0);
             transform.Translate(distance * 2 + rand);
         }
-
     }
 }

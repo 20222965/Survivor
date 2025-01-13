@@ -17,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Area
+  - PlayerBullet
   - Player
   - Enemy
   - Exp

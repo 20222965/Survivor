@@ -13,6 +13,13 @@ public abstract class PoolAble : MonoBehaviour
     /// </summary>
     public void ReleaseObject()
     {
-        Pool.Release(this);
+        if(IsActive())
+            Pool.Release(this);
     }
+
+    /// <summary>
+    /// 활성 상태인지 확인
+    /// </summary>
+    /// <returns>true : 활성 상태, false : 이미 반환된 개체</returns>
+    public bool IsActive() => gameObject.activeSelf;
 }

@@ -3,14 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/WeaponItemData")]
 public class WeaponData : ItemData
 {
-    public enum WeaponItem
-    {
-        Bullet0,
-        Bullet1,
-        Bullet2,
-        Count
-    }
-
     /// <summary>
     /// 무기가 사용하는 불릿 정보
     /// </summary>

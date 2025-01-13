@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         Player.PlayerID = id;
         this.Player.gameObject.SetActive(true);
 
-        UILevelUp.Select(id % (int)WeaponData.WeaponItem.Count);
+        UILevelUp.Select(id);
         Resume();
 
         AudioManager.Instance.PlayBGM(AudioManager.BGM.Game, true);

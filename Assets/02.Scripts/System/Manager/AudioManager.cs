@@ -24,7 +24,7 @@ public class AudioManager : MonoBehaviour
     int channelIdx;
 
     public enum BGM { Lobby, Game }
-    public enum Sfx { None, Dead, Hit, LevelUp, Lose, Melee, Range, Select, Win, Cancel, Coin, Throw, Notice }
+    public enum Sfx { None, Dead, Hit, LevelUp, Lose, Melee, Range, Select, Win, Cancel, Coin, Throw, Notice, Explosion }
 
     private void Awake()
     {
