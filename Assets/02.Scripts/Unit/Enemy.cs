@@ -16,8 +16,9 @@ public class Enemy : PoolAble
 
     public SpawnData Data { get; set; }
     public float Health { get; set; }
-    public float KnockBackForce { get; set; } = 3f;
+
     bool isActive = false;
+    bool isHit;
 
     void Awake()
     {
@@ -54,13 +55,15 @@ public class Enemy : PoolAble
     void FixedUpdate()
     {
         if (GameManager.Instance.IsPause) return;
-        if (!isActive || anim.GetCurrentAnimatorStateInfo(0).IsName("Hit")) return;
+        if (!isActive) return; // 몬스터가 활성 상태가 아니면 움직이지 않음.
 
         if (GameManager.Instance.GameTime >= GameManager.Instance.EndTime)
         {
             Dead();
             return;
         }
+
+        if (isHit) return;   // 몬스터가 피격 상태면 움직이지 않음
 
         Vector2 directionVector = (target.position - rigid.position).normalized;
         Vector2 nextVector = directionVector * Data.Speed * Time.fixedDeltaTime;
@@ -84,10 +87,10 @@ public class Enemy : PoolAble
         if (!collision.CompareTag("PlayerBullet")) return;
 
         var bullet = collision.GetComponent<Bullet>();
-        Health -= bullet.damage;
+        Health -= bullet.Damage;
         if (Health > 0)
         {
-            Hit();
+            Hit(bullet.KnockBackForce);
         }
         else
         {   // DIE
@@ -97,20 +100,30 @@ public class Enemy : PoolAble
 
     }
 
-    void Hit()
+
+    void HitStart()
+    {
+        isHit = true;
+    }
+    void HitEnd()
+    {
+        isHit = false;
+    }
+
+    void Hit(float knockBackForce)
     {
         if (!isActive) return;
 
         anim.SetTrigger("Hit");
-        StartCoroutine(KnockBack());
+        StartCoroutine(KnockBack(knockBackForce));
         AudioManager.Instance.PlaySfx(AudioManager.Sfx.Hit);
     }
-    IEnumerator KnockBack()
+    IEnumerator KnockBack(float knockBackForce)
     {
         yield return wait;
         Vector3 playerPos = GameManager.Instance.Player.transform.position;
         Vector3 directionVec = (transform.position - playerPos).normalized;
-        rigid.AddForce(directionVec * KnockBackForce, ForceMode2D.Impulse);
+        rigid.AddForce(directionVec * knockBackForce, ForceMode2D.Impulse);
     }
 
     void Dead()

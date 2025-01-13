@@ -2,19 +2,21 @@ using UnityEngine;
 
 public class Bullet : PoolAble
 {
-    public float damage;
-    public int penetration;
+    public float Damage { get; private set; }
+    public int Penetration { get; private set; }
+    public float KnockBackForce { get; private set; }
 
     Rigidbody2D rigid;
 
-    public void Init(float damage, int penetration, Vector3 direction)
+    public void Init(float damage, int penetration, Vector3 direction, float knockBackForce)
     {
-        this.damage = damage;
-        this.penetration = penetration;
+        Damage = damage;
+        Penetration = penetration;
+        KnockBackForce = knockBackForce;
 
-        if(penetration >= 0)
+        if (rigid != null)
         {
-            rigid.linearVelocity = direction * 15f;
+            rigid.linearVelocity = direction;
         }
     }
     void Awake()
@@ -24,11 +26,11 @@ public class Bullet : PoolAble
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Enemy") || penetration < -1 || !gameObject.activeSelf) return;
+        if (!collision.CompareTag("Enemy") || Penetration < -1 || !gameObject.activeSelf) return;
 
-        --penetration;
+        --Penetration;
 
-        if(penetration < 0)
+        if(Penetration < 0)
         {
             ReleaseObject();
         }

@@ -130,7 +130,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 16b49ee7841da6e47a189bb7e37e6477, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -190,10 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eb30354b961c147a550e36cedd11f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
-  health: 10
-  maxHealth: 10
-  exp: 1
   animCon:
   - {fileID: 9100000, guid: 65b976ac30d7da94098a457245ca8ddc, type: 2}
   - {fileID: 22100000, guid: 061d0c41098fff144a8a3d59f5e28ace, type: 2}

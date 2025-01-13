@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+
 public class WRandomGun : Weapon
 {
     float timer = 0;
@@ -40,6 +40,6 @@ public class WRandomGun : Weapon
         // 불릿 생성
         Transform bullet = PoolManager.Instance.Get(Data.BulletData.DataID).transform;
         bullet.SetPositionAndRotation(transform.position, Quaternion.FromToRotation(Vector3.up, direction));
-        bullet.GetComponent<Bullet>().Init(Damage, Penetration, direction);
+        bullet.GetComponent<Bullet>().Init(Damage, Penetration, direction * BulletVelocity, KnockBackForce);
     }
 }

@@ -35,4 +35,6 @@ MonoBehaviour:
   - 0.25
   <Counts>k__BackingField: 0100000002000000030000000400000005000000
   <Penetrations>k__BackingField: 
+  <BulletVelocity>k__BackingField: 15
+  <KnockBackForce>k__BackingField: 1
   <Sfx>k__BackingField: 6

@@ -21,6 +21,8 @@ public class PlayerEquipment : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.IsPause) return;
+
         foreach (var weapon in weapons)
         {
             weapon.Attack();
@@ -71,6 +73,7 @@ public class PlayerEquipment : MonoBehaviour
         }
         passives.Add(new PassiveStatus(data));
     }
+
     public void LevelUpWeapon(WeaponData data)
     {
         for (int i = 0; i < weapons.Count; ++i)

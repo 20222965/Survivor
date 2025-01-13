@@ -41,7 +41,7 @@ public class WTargetingGun : Weapon
         {
             Transform bullet = PoolManager.Instance.Get(Data.BulletData.DataID).transform;
             bullet.SetPositionAndRotation(transform.position, Quaternion.FromToRotation(Vector3.up, direction));
-            bullet.GetComponent<Bullet>().Init(Damage, Penetration, direction);
+            bullet.GetComponent<Bullet>().Init(Damage, Penetration, direction * BulletVelocity, KnockBackForce);
             AudioManager.Instance.PlaySfx(Data.Sfx);
 
             yield return wait;

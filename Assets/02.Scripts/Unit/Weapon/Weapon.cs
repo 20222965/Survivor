@@ -6,6 +6,7 @@ public abstract class Weapon : MonoBehaviour
     public WeaponData Data { get; set; }
 
     public int Level { get; set; }
+
     public float Damage
     {
         get
@@ -55,6 +56,20 @@ public abstract class Weapon : MonoBehaviour
                 return equip.Status.Penetration + Data.Penetrations[idx];
             }
             return equip.Status.Penetration;
+        }
+    }
+    public float BulletVelocity
+    {
+        get
+        {
+            return Data.BulletVelocity;
+        }
+    }
+    public float KnockBackForce
+    {
+        get
+        {
+            return Data.KnockBackForce;
         }
     }
 

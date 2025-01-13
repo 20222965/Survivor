@@ -39,6 +39,14 @@ public class WeaponData : ItemData
     /// </summary>
     [field: SerializeField] public int[] Penetrations { get; private set; }
     /// <summary>
+    /// 무기가 사용하는 불릿의 속도 (불릿 linearVelocity = 방향 * BulletVelocity)
+    /// </summary>
+    [field: SerializeField] public float BulletVelocity { get; set; } = 15f;
+    /// <summary>
+    /// 피격된 적이 넉백되는 힘
+    /// </summary>
+    [field: SerializeField] public float KnockBackForce { get; set; } = 3f;
+    /// <summary>
     /// 무기 시전 시 효과음
     /// </summary>
     [field: SerializeField] public AudioManager.Sfx Sfx { get; private set; }

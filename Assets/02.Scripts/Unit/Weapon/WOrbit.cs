@@ -46,7 +46,7 @@ public class WOrbit : Weapon
 
             var bullet = bulletTransform.GetComponent<Bullet>();
 
-            bullet.Init(Damage, -100, Vector3.zero);
+            bullet.Init(Damage, -100, Vector3.zero, KnockBackForce);
         }
     }
 }
