@@ -26,7 +26,7 @@ public abstract class Weapon : MonoBehaviour
             if (Data.AttackSpeeds.Length > 0)
             {
                 int idx = Mathf.Min(Level, Data.AttackSpeeds.Length) - 1;
-                return (1 + Data.AttackSpeeds[idx]) * equip.Status.AttackSpeed;
+                return  Data.AttackSpeeds[idx] * equip.Status.AttackSpeed;
             }
             else
             {

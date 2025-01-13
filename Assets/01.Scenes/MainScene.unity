@@ -37898,7 +37898,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD68C\uC804 \uBC0F \uAD00\uD1B5 1 \uCD94\uAC00"
+  m_text: "\uBD88\uB9BF \uAC1C\uC218 \uBC0F \uAD00\uD1B5 1 \uCD94\uAC00"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ffa0ae46082b28f498dfd400a638621f, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 8e493d72e9ff00b418fd8a75f216e0ac, type: 2}
@@ -40348,7 +40348,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 4eeaa9eb82517b34cb5c31442e288ffe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -46643,7 +46643,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 11.5625
+  orthographic size: 11.875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

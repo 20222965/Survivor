@@ -27,7 +27,7 @@ public class WeaponData : ItemData
     /// </summary>
     [field: SerializeField] public float[] Damages { get; private set; }
     /// <summary>
-    /// 레벨별 무기 속도 (0.1 => +10%)
+    /// 레벨별 무기 속도 (2 => 1초에 2번)
     /// </summary>
     [field: SerializeField] public float[] AttackSpeeds { get; private set; }
     /// <summary>

@@ -28,11 +28,11 @@ MonoBehaviour:
   - 12
   - 16
   <AttackSpeeds>k__BackingField:
-  - 0
-  - 0.2
-  - 0.4
-  - 0.7
   - 1
+  - 1.2
+  - 1.4
+  - 1.7
+  - 2
   <Counts>k__BackingField: 0100000002000000030000000300000005000000
   <Penetrations>k__BackingField: 0a000000
   <BulletVelocity>k__BackingField: 10
