@@ -147,7 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937920c8f6975e840b1430f532540380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expSpriteLevel: 01000000050000000a000000
   expSprites:
   - {fileID: 1775669009216684005, guid: a2c110585eb710b408972fbc3b96136d, type: 3}
   - {fileID: 7293598183456022363, guid: 1ddc9afd21fec77489b1248d18f31b68, type: 3}
   - {fileID: 837517196756356485, guid: 131e485692e27e84c86170dad18cda85, type: 3}
+  player: {fileID: 0}
+  spriteRenderer: {fileID: 6364278142678297432}

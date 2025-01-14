@@ -89,9 +89,7 @@ public abstract class Weapon : MonoBehaviour
         equip = _equipment;
 
         transform.parent = _player.transform;
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
-
+        transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         Level = 1;
 
         WeaponInit();

@@ -38,8 +38,8 @@ public class WRandomGun : Weapon
         Vector3 direction = rotation * Vector3.up;
 
         // 불릿 생성
-        Transform bullet = PoolManager.Instance.Get(Data.BulletData.DataID).transform;
-        bullet.SetPositionAndRotation(transform.position, Quaternion.FromToRotation(Vector3.up, direction));
-        bullet.GetComponent<Bullet>().Init(Damage, Penetration, direction * BulletVelocity, KnockBackForce);
+        Bullet bullet = (Bullet)PoolManager.Instance.Get(Data.BulletData.DataID);
+        bullet.transform.SetPositionAndRotation(transform.position, Quaternion.FromToRotation(Vector3.up, direction));
+        bullet.Init(Damage, Penetration, direction * BulletVelocity, KnockBackForce);
     }
 }

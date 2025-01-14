@@ -86,7 +86,7 @@ public class PlayerEquipment : MonoBehaviour
         }
 
         var weapon = WeaponFactory.Create(data.Weapon);
-        weapon.Init(data);
+        weapon.Init(data, GetComponent<Player>(), this);
         weapons.Add(weapon);
     }
 

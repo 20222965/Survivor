@@ -6,20 +6,19 @@ public class ExpItem : PoolAble
 
     public int Exp { get; set; }
 
-    int[] expSpriteLevel = { 1, 5, 10 };
-    public Sprite[] expSprites;
+    [SerializeField] int[] expSpriteLevel = { 1, 5, 10 };
+    [SerializeField] public Sprite[] expSprites;
+
+    [SerializeField] Magnet target;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     bool isAttracting = false;
     bool isActive = false;
 
-    Player player;
-    SpriteRenderer spriteRenderer;
-
-
     private void Awake()
     {
-        player = GameManager.Instance.Player;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        if(target == null) target = GameManager.Instance.Player.GetComponentInChildren<Magnet>(true);
+        if(spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -54,8 +53,8 @@ public class ExpItem : PoolAble
             if (GameManager.Instance.IsPause)
                 yield return null;
 
-            Vector3 direction = (player.transform.position - transform.position).normalized;
-            transform.position += player.MagnetStrength * Time.deltaTime * direction;
+            Vector3 direction = (target.transform.position - transform.position).normalized;
+            transform.position += target.MagnetStrength * Time.deltaTime * direction;
             yield return null;
         }
     }
@@ -66,11 +65,11 @@ public class ExpItem : PoolAble
 
         if (isAttracting)   // 자석 효과 발동중이라면
         {
-            if (collision.transform.CompareTag("Player"))
+            if (collision.transform.CompareTag(TagAndLayer.GetTag(TagAndLayer.Tag.Player)))
             {   // 플레이어와 닿았으면
                 AudioManager.Instance.PlaySfx(AudioManager.Sfx.Coin);   // 경험치 획득 효과음
                 isAttracting = false;   // 자석 효과 종료 (획득)
-                player.AddExp(Exp); // 플레이어 경험치 증가
+                GameManager.Instance.Player.AddExp(Exp); // 플레이어 경험치 증가
                 isActive = false;
                 ReleaseObject();  // 경험치 오브젝트 반환
             }
@@ -79,7 +78,7 @@ public class ExpItem : PoolAble
 
 
         // 플레이어 자석에 닿음
-        if (collision.CompareTag("Magnet"))
+        if (collision.CompareTag(TagAndLayer.GetTag(TagAndLayer.Tag.Magnet)))
         {   // 자석 효과 On
             isAttracting = true;
             StartCoroutine(AttractingPlayer()); // 플레이어를 따라감
@@ -91,7 +90,7 @@ public class ExpItem : PoolAble
         if (!isActive || GameManager.Instance.IsPause) return;
 
         // 범위 밖으로 벗어남, 디스폰
-        if (collision.CompareTag("Area"))
+        if (collision.CompareTag(TagAndLayer.GetTag(TagAndLayer.Tag.Area)))
         {   // 경험치 저장
             ExpManager.Instance.SaveExpOutsideArea(Exp);
             isActive = false;

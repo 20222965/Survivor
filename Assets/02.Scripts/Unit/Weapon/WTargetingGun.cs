@@ -31,17 +31,15 @@ public class WTargetingGun : Weapon
 
         // 타겟이 있었던 방향으로 Count만큼 연속으로 발사
         StartCoroutine(Fire(direction));
-
-        //AudioManager.Instance.PlaySfx(Data.Sfx);
     }
 
     IEnumerator Fire(Vector3 direction)
     {
         for (int i = 0; i < Count; ++i)
         {
-            Transform bullet = PoolManager.Instance.Get(Data.BulletData.DataID).transform;
-            bullet.SetPositionAndRotation(transform.position, Quaternion.FromToRotation(Vector3.up, direction));
-            bullet.GetComponent<Bullet>().Init(Damage, Penetration, direction * BulletVelocity, KnockBackForce);
+            Bullet bullet = (Bullet)PoolManager.Instance.Get(Data.BulletData.DataID);
+            bullet.transform.SetPositionAndRotation(transform.position, Quaternion.FromToRotation(Vector3.up, direction));
+            bullet.Init(Damage, Penetration, direction * BulletVelocity, KnockBackForce);
             AudioManager.Instance.PlaySfx(Data.Sfx);
 
             yield return wait;

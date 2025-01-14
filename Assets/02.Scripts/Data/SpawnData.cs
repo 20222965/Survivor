@@ -45,7 +45,11 @@ public class SpawnData : ScriptableObject
     [field: SerializeField] public float SpawnEndTime { get; private set; }
 
     /// <summary>
+    /// 스폰된 적이 피격 시 효과음
+    /// </summary>
+    public AudioManager.Sfx SfxHit = AudioManager.Sfx.Hit;
+    /// <summary>
     /// 스폰된 적이 사망 시 효과음
     /// </summary>
-    public AudioManager.Sfx Sfx = AudioManager.Sfx.Dead;
+    public AudioManager.Sfx SfxDead = AudioManager.Sfx.Dead;
 }

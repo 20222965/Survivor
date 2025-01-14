@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class WOrbit : Weapon
 {
-    private readonly List<Transform> orbitTransforms = new List<Transform>();
+    private readonly List<Bullet> orbitBullets = new List<Bullet>();
 
     protected override void WeaponInit()
     {   // 불릿을 오브젝트 풀에 추가
@@ -24,27 +24,25 @@ public class WOrbit : Weapon
     {
         for (int i = 0; i < Count; i++)
         {
-            Transform bulletTransform;
+            Bullet bullet;
 
-            if (i < orbitTransforms.Count)
+            if (i < orbitBullets.Count)
             {
-                bulletTransform = orbitTransforms[i];
+                bullet = orbitBullets[i];
             }
             else
             {
-                bulletTransform = PoolManager.Instance.Get(Data.BulletData.DataID).transform;
-                orbitTransforms.Add(bulletTransform);
+                bullet = (Bullet)PoolManager.Instance.Get(Data.BulletData.DataID);
+                orbitBullets.Add(bullet);
             }
 
-            bulletTransform.parent = transform;
-            bulletTransform.localPosition = Vector3.zero;
-            bulletTransform.rotation = Quaternion.identity;
+            bullet.transform.parent = transform;
+            bullet.transform.localPosition = Vector3.zero;
+            bullet.transform.rotation = Quaternion.identity;
 
             Vector3 rotVec = Vector3.forward * (360 * i / Count);
-            bulletTransform.Rotate(rotVec);
-            bulletTransform.Translate(bulletTransform.up * 1.3f, Space.World);
-
-            var bullet = bulletTransform.GetComponent<Bullet>();
+            bullet.transform.Rotate(rotVec);
+            bullet.transform.Translate(bullet.transform.up * 1.3f, Space.World);
 
             bullet.Init(Damage, -100, Vector3.zero, KnockBackForce);
         }

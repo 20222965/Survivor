@@ -39,12 +39,11 @@ public class WExplosion : Weapon
         Vector3 randPosition = new Vector3(transform.position.x + Random.Range(-5f, 5f), transform.position.y + Random.Range(-5f, 5f), 0);
 
         // 불릿 생성
-        var bullet = PoolManager.Instance.Get(Data.BulletData.DataID);
+        var bullet = (Bullet)PoolManager.Instance.Get(Data.BulletData.DataID);
 
         // 랜덤 위치로 이동
         bullet.transform.position = randPosition;
-        bullet.transform.GetComponent<Bullet>().Init(Damage, -100, Vector3.zero, KnockBackForce);
-
+        bullet.Init(Damage, -100, Vector3.zero, KnockBackForce);
 
         StartCoroutine(ExplosionEnd(bullet));
     }

@@ -10,6 +10,7 @@ TagManager:
   - PlayerBullet
   - Exp
   - Magnet
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - Enemy
   - Exp
   - Magnet
-  - 
-  - 
+  - EnemyBullet
+  - Spawner
   - 
   - 
   - 
