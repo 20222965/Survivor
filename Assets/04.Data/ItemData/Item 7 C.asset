@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef43a1b8c48fb584d966623b25cc3c6e, type: 3}
-  m_Name: Item 6 C
+  m_Name: Item 7 C
   m_EditorClassIdentifier: 
   <Category>k__BackingField: 2
   <MaxLevel>k__BackingField: 0
-  <ItemID>k__BackingField: 6
-  <ItemName>k__BackingField: "\uC74C\uB8CC\uC218"
-  <ItemDescription>k__BackingField: "\uC0DD\uBA85\uB825 100% \uD68C\uBCF5"
-  <ItemIcon>k__BackingField: {fileID: 927338625, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  <ItemID>k__BackingField: 7
+  <Name>k__BackingField: "\uC74C\uB8CC\uC218"
+  <Descriptions>k__BackingField:
+  - "\uC0DD\uBA85\uB825 \uC804\uCCB4 \uD68C\uBCF5"
+  <Icon>k__BackingField: {fileID: 927338625, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   <ConsumableType>k__BackingField: 0
   <Value>k__BackingField: 100

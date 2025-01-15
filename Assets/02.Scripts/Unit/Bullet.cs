@@ -1,10 +1,10 @@
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class Bullet : PoolAble, IAttackAble
+public class Bullet : PoolAble, IGetDamageAble
 {
 
-    public float Damage { get; private set; }
+    private IGetDamageAble getDamageAble;
+    public float Damage => getDamageAble.Damage;
     public int Penetration { get; private set; }
     public float KnockBackForce { get; private set; }
 
@@ -16,9 +16,9 @@ public class Bullet : PoolAble, IAttackAble
         if (rigid == null) rigid = GetComponent<Rigidbody2D>();
     }
 
-    public void Init(float damage, int penetration, Vector3 direction, float knockBackForce, TagAndLayer.Tag targetTag = TagAndLayer.Tag.Enemy)
+    public void Init(IGetDamageAble damageAble, int penetration, Vector3 direction, float knockBackForce = 0, TagAndLayer.Tag targetTag = TagAndLayer.Tag.Enemy)
     {
-        Damage = damage;
+        getDamageAble = damageAble;
         Penetration = penetration;
         KnockBackForce = knockBackForce;
         this.targetTag = targetTag;
@@ -28,8 +28,6 @@ public class Bullet : PoolAble, IAttackAble
             rigid.linearVelocity = direction;
         }
     }
-
-    public float GetDamage() => Damage;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

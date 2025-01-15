@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PassiveData", menuName = "Scriptable Objects/PassiveData")]
+[CreateAssetMenu(fileName = "PassiveData", menuName = "Scriptable Objects/Item/PassiveData")]
 public class PassiveData : ItemData
 {
     public enum EPassiveType { Damage, MoveSpeed, AttackSpeed, Health, Penetrations }

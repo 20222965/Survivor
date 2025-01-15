@@ -15,16 +15,20 @@ MonoBehaviour:
   <Category>k__BackingField: 0
   <MaxLevel>k__BackingField: 5
   <ItemID>k__BackingField: 0
-  <ItemName>k__BackingField: "\uC0BD"
-  <ItemDescription>k__BackingField: "\uC8FC\uBCC0\uC744 \uACF5\uC804\uD558\uBA70
-    \uACF5\uACA9\r"
-  <ItemIcon>k__BackingField: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  <Name>k__BackingField: "\uC0BD"
+  <Descriptions>k__BackingField:
+  - "\uC8FC\uBCC0\uC744 \uACF5\uC804\uD558\uBA70 \uACF5\uACA9"
+  - "\uD68C\uC804\uCCB4 \uC99D\uAC00\n\uACF5\uACA9\uB825 2 \uC99D\uAC00"
+  - "\uD68C\uC804\uCCB4 \uC99D\uAC00\n\uACF5\uACA9\uB825 3 \uC99D\uAC00"
+  - "\uD68C\uC804\uCCB4 \uC99D\uAC00\n\uACF5\uACA9\uB825 4 \uC99D\uAC00"
+  - "\uD68C\uC804\uCCB4 2 \uC99D\uAC00\n\uACF5\uACA9\uB825 5 \uC99D\uAC00"
+  <Icon>k__BackingField: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   <BulletData>k__BackingField: {fileID: 11400000, guid: a83cbd5a2d7272e458292c8f0d335b57, type: 2}
   <Weapon>k__BackingField: 0
   <Damages>k__BackingField:
   - 5
-  - 7.5
-  - 11
+  - 7
+  - 10
   - 14
   - 19
   <AttackSpeeds>k__BackingField:
@@ -33,7 +37,7 @@ MonoBehaviour:
   - 170
   - 180
   - 205
-  <Counts>k__BackingField: 0300000004000000050000000600000007000000
+  <Counts>k__BackingField: 0300000004000000050000000600000008000000
   <Penetrations>k__BackingField: 
   <BulletVelocity>k__BackingField: 0
   <KnockBackForce>k__BackingField: 3

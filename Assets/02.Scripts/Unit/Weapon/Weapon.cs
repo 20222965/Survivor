@@ -2,78 +2,10 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-
-    public WeaponData Data { get; set; }
-
-    public int Level { get; set; }
-
-    public float Damage
-    {
-        get
-        {
-            if (Data.Damages.Length > 0)
-            {
-                int idx = Mathf.Min(Level, Data.Damages.Length) - 1;
-                return Data.Damages[idx] * equip.Status.Damage;
-            }
-            return equip.Status.Damage;
-        }
-    }
-    public float AttackSpeed
-    {
-        get
-        {
-            if (Data.AttackSpeeds.Length > 0)
-            {
-                int idx = Mathf.Min(Level, Data.AttackSpeeds.Length) - 1;
-                return  Data.AttackSpeeds[idx] * equip.Status.AttackSpeed;
-            }
-            else
-            {
-                return equip.Status.AttackSpeed;
-            }
-        }
-    }
-    public int Count
-    {
-        get
-        {
-            if (Data.Counts.Length > 0)
-            {
-                int idx = Mathf.Min(Level, Data.Counts.Length) - 1;
-                return equip.Status.Count + Data.Counts[idx];
-            }
-            return equip.Status.Count;
-        }
-    }
-    public int Penetration
-    {
-        get
-        {
-            if (Data.Penetrations.Length > 0)
-            {
-                int idx = Mathf.Min(Level, Data.Penetrations.Length) - 1;
-                return equip.Status.Penetration + Data.Penetrations[idx];
-            }
-            return equip.Status.Penetration;
-        }
-    }
-    public float BulletVelocity
-    {
-        get
-        {
-            return Data.BulletVelocity;
-        }
-    }
-    public float KnockBackForce
-    {
-        get
-        {
-            return Data.KnockBackForce;
-        }
-    }
-
-    protected PlayerEquipment equip;
+    /// <summary>
+    /// 무기 레벨 및 스탯 정보
+    /// </summary>
+    public WeaponStatus Status { get; set; }
     protected Player player;
 
     /// <summary>
@@ -84,13 +16,11 @@ public abstract class Weapon : MonoBehaviour
     /// <param name="_equipment">플레이어의 장비</param>
     public virtual void Init(WeaponData data, Player _player, PlayerEquipment _equipment)
     {
-        Data = data;
-        player = _player;
-        equip = _equipment;
+        Status = new WeaponStatus(data, _equipment);
 
+        player = _player;
         transform.parent = _player.transform;
         transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-        Level = 1;
 
         WeaponInit();
     }
@@ -100,18 +30,26 @@ public abstract class Weapon : MonoBehaviour
     }
 
     /// <summary>
+    /// 같은 아이템인지 확인
+    /// </summary>
+    /// <param name="item">확인할 아이템</param>
+    /// <returns>true: 같은 아이템, false: 다른 아이템</returns>
+    public bool CompareItem(ItemData item) => Status.CompareItem(item);
+
+
+    /// <summary>
+    /// 무기 레벨업
+    /// </summary>
+    public virtual void LevelUp()
+    {
+        Status.LevelUp();
+        LevelUpSetting();
+    }
+
+    /// <summary>
     /// 무기 기본 설정
     /// </summary>
     protected abstract void WeaponInit();
-
-    public void LevelUp()
-    {
-        if (Level < Data.MaxLevel)
-        {
-            ++Level;
-            LevelUpSetting();
-        }
-    }
 
     /// <summary>
     /// 레벨업 했을 때 업데이트 할 내용

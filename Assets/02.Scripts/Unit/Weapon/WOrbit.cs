@@ -7,22 +7,22 @@ public class WOrbit : Weapon
 
     protected override void WeaponInit()
     {   // 불릿을 오브젝트 풀에 추가
-        PoolManager.Instance.Add(Data.BulletData);
+        PoolManager.Instance.Add(Status.BulletData);
 
         // 회전 중심
-        name = nameof(WOrbit) + Data.BulletData.DataID;
+        name = nameof(WOrbit) + Status.BulletDataID;
 
         LevelUpSetting();
     }
 
     public override void Attack()
     {
-        transform.Rotate(Vector3.back * AttackSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.back * Status.AttackSpeed * Time.deltaTime);
     }
 
     protected override void LevelUpSetting()
     {
-        for (int i = 0; i < Count; i++)
+        for (int i = 0; i < Status.Count; i++)
         {
             Bullet bullet;
 
@@ -32,7 +32,7 @@ public class WOrbit : Weapon
             }
             else
             {
-                bullet = (Bullet)PoolManager.Instance.Get(Data.BulletData.DataID);
+                bullet = (Bullet)PoolManager.Instance.Get(Status.BulletDataID);
                 orbitBullets.Add(bullet);
             }
 
@@ -40,11 +40,11 @@ public class WOrbit : Weapon
             bullet.transform.localPosition = Vector3.zero;
             bullet.transform.rotation = Quaternion.identity;
 
-            Vector3 rotVec = Vector3.forward * (360 * i / Count);
+            Vector3 rotVec = Vector3.forward * (360 * i / Status.Count);
             bullet.transform.Rotate(rotVec);
             bullet.transform.Translate(bullet.transform.up * 1.3f, Space.World);
 
-            bullet.Init(Damage, -100, Vector3.zero, KnockBackForce);
+            bullet.Init(Status, -100, Vector3.zero, Status.KnockBackForce);
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/ConsumableData")]
+[CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Item/ConsumableData")]
 public class ConsumableData : ItemData
 {
     public enum EConsumableType

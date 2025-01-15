@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SpawnData", menuName = "Scriptable Objects/SpawnData")]
-public class SpawnData : ScriptableObject
+public class SpawnData : ScriptableObject, IGetDamageAble
 {
     /// <summary>
     /// 스폰할 적 데이터 정보

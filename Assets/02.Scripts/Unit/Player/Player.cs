@@ -66,9 +66,9 @@ public class Player : MonoBehaviour
         
         if (collision.gameObject.CompareTag(TagAndLayer.GetTag(TagAndLayer.Tag.Enemy)))
         {   // 적과 충돌했을 경우
-            if (collision.gameObject.TryGetComponent<IAttackAble>(out var enemy))
+            if (collision.gameObject.TryGetComponent<IGetDamageAble>(out var enemy))
             {   // 초당 적 데미지만큼 감소
-                Hit(enemy.GetDamage() * Time.deltaTime);
+                Hit(enemy.Damage * Time.deltaTime);
             }
         }
 
@@ -84,9 +84,9 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag(TagAndLayer.GetTag(TagAndLayer.Tag.EnemyBullet)))
         {
-            if (collision.gameObject.TryGetComponent<IAttackAble>(out var bullet))
+            if (collision.gameObject.TryGetComponent<IGetDamageAble>(out var bullet))
             {   // 적 불릿 데미지만큼 감소
-                Hit(bullet.GetDamage());
+                Hit(bullet.Damage);
             }
         }
 

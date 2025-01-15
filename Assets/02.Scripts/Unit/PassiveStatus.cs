@@ -23,4 +23,6 @@ public class PassiveStatus
     {
         return Data.Values[Mathf.Min(Level, Data.Values.Length) - 1];
     }
+
+    public bool CompareItem(ItemData item) => Data.ItemID == item.ItemID;
 }

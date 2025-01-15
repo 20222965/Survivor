@@ -4,19 +4,19 @@ using UnityEngine;
 public class WTargetingGun : Weapon
 {
     float timer = 0;
-    WaitForSecondsRealtime wait = new WaitForSecondsRealtime(0.1f);
+    WaitForSeconds wait = new WaitForSeconds(0.1f);
 
     protected override void WeaponInit()
     {   // 불릿을 오브젝트 풀에 추가
-        PoolManager.Instance.Add(Data.BulletData);
+        PoolManager.Instance.Add(Status.BulletData);
 
-        name = nameof(WTargetingGun) + Data.BulletData.DataID;
+        name = nameof(WTargetingGun) + Status.BulletDataID;
     }
 
     public override void Attack()
     {
         // 공격 쿨타임이 끝났고
-        if (timer * AttackSpeed < 1f)
+        if (timer * Status.AttackSpeed < 1f)
         {
             timer += Time.deltaTime;
             return;
@@ -35,12 +35,12 @@ public class WTargetingGun : Weapon
 
     IEnumerator Fire(Vector3 direction)
     {
-        for (int i = 0; i < Count; ++i)
+        for (int i = 0; i < Status.Count; ++i)
         {
-            Bullet bullet = (Bullet)PoolManager.Instance.Get(Data.BulletData.DataID);
+            Bullet bullet = (Bullet)PoolManager.Instance.Get(Status.BulletData.DataID);
             bullet.transform.SetPositionAndRotation(transform.position, Quaternion.FromToRotation(Vector3.up, direction));
-            bullet.Init(Damage, Penetration, direction * BulletVelocity, KnockBackForce);
-            AudioManager.Instance.PlaySfx(Data.Sfx);
+            bullet.Init(Status, Status.Penetration, direction * Status.BulletVelocity, Status.KnockBackForce);
+            AudioManager.Instance.PlaySfx(Status.Sfx);
 
             yield return wait;
         }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/ItemData")]
+[CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Item/ItemData")]
 public class ItemData : ScriptableObject
 {
     public enum ItemCategory
@@ -26,16 +26,16 @@ public class ItemData : ScriptableObject
     /// <summary>
     /// 아이템 이름
     /// </summary>
-    [field: SerializeField] public string ItemName { get; private set; }
+    [field: SerializeField] public string Name { get; private set; }
 
     /// <summary>
     /// 아이템 설명
     /// </summary>
     [field: TextArea(order = 3)]
-    [field: SerializeField] public string ItemDescription { get; private set; }
+    [field: SerializeField] public string[] Descriptions { get; private set; } = new string[1];
     /// <summary>
     /// 아이템 아이콘
     /// </summary>
-    [field: SerializeField] public Sprite ItemIcon { get; private set; }
+    [field: SerializeField] public Sprite Icon { get; private set; }
 
 }

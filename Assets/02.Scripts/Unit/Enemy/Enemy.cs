@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : PoolAble, IAttackAble
+public class Enemy : PoolAble, IGetDamageAble
 {
     [SerializeField] protected Rigidbody2D target;
     [SerializeField] protected Rigidbody2D rigid;
@@ -11,6 +11,7 @@ public class Enemy : PoolAble, IAttackAble
     protected WaitForFixedUpdate wait = new WaitForFixedUpdate();
 
     public SpawnData Data { get; set; }
+    public float Damage => Data.Damage;
     public float Health { get; set; }
 
     protected bool isActive = false;
@@ -39,12 +40,6 @@ public class Enemy : PoolAble, IAttackAble
         animator.SetAnimatorController(data.SpriteIdx);
         Health = data.Health;
     }
-
-    public float GetDamage()
-    {
-        return Data.Damage;
-    }
-
 
     private void FixedUpdate()
     {
@@ -82,7 +77,7 @@ public class Enemy : PoolAble, IAttackAble
         if (!collision.CompareTag(TagAndLayer.GetTag(TagAndLayer.Tag.PlayerBullet))) return;
 
         var bullet = collision.GetComponent<Bullet>();
-        Health -= bullet.GetDamage();
+        Health -= bullet.Damage;
         if (Health > 0)
         {
             Hit(bullet.KnockBackForce);

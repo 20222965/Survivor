@@ -8,15 +8,15 @@ public class WExplosion : Weapon
 
     protected override void WeaponInit()
     {   // 불릿을 오브젝트 풀에 추가
-        PoolManager.Instance.Add(Data.BulletData);
+        PoolManager.Instance.Add(Status.BulletData);
 
-        name = nameof(WExplosion) + Data.BulletData.DataID;
+        name = nameof(WExplosion) + Status.BulletDataID;
     }
 
     public override void Attack()
     {
         // 공격 쿨타임이 끝났으면
-        if (timer * AttackSpeed < 1f)
+        if (timer * Status.AttackSpeed < 1f)
         {
             timer += Time.deltaTime;
             return;
@@ -24,13 +24,13 @@ public class WExplosion : Weapon
         timer = 0f;
 
         // Count 횟수만큼 불릿 동시에 발사
-        for(int i = 0; i < Count; ++i)
+        for(int i = 0; i < Status.Count; ++i)
         {
             Explosion();
         }
 
         // 효과음 재생
-        AudioManager.Instance.PlaySfx(Data.Sfx);
+        AudioManager.Instance.PlaySfx(Status.Data.Sfx);
     }
 
     void Explosion()
@@ -39,11 +39,11 @@ public class WExplosion : Weapon
         Vector3 randPosition = new Vector3(transform.position.x + Random.Range(-5f, 5f), transform.position.y + Random.Range(-5f, 5f), 0);
 
         // 불릿 생성
-        var bullet = (Bullet)PoolManager.Instance.Get(Data.BulletData.DataID);
+        var bullet = (Bullet)PoolManager.Instance.Get(Status.BulletDataID);
 
         // 랜덤 위치로 이동
         bullet.transform.position = randPosition;
-        bullet.Init(Damage, -100, Vector3.zero, KnockBackForce);
+        bullet.Init(Status, -100, Vector3.zero, Status.KnockBackForce);
 
         StartCoroutine(ExplosionEnd(bullet));
     }

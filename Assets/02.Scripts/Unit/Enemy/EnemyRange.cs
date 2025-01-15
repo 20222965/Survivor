@@ -58,7 +58,7 @@ public class EnemyRange : Enemy
 
         Bullet bullet = (Bullet)PoolManager.Instance.Get(BulletData.DataID);
         bullet.transform.SetPositionAndRotation(transform.position, Quaternion.FromToRotation(Vector3.up, direction));
-        bullet.Init(Data.Damage, 0, direction * BulletSpeed, 0f, TagAndLayer.Tag.Player);
+        bullet.Init(Data, 0, direction * BulletSpeed, targetTag:TagAndLayer.Tag.Player);
     }
 
 }

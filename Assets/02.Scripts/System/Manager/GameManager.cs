@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     [field:Header("Game Object")]
     [field: SerializeField] public Transform UIJoy { get; set; }
     [field: SerializeField] public Player Player { get; set; }
-    [field:SerializeField] public LevelUp UILevelUp { get; set; }
+    [field:SerializeField] public LevelUpHandler UILevelUp { get; set; }
     [field: SerializeField] public Result UIResult { get; set; }
 
     void Awake()
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
         Application.targetFrameRate = 60;
         if (Player == null) Player = FindAnyObjectByType<Player>(FindObjectsInactive.Include);
-        if (UILevelUp == null) UILevelUp = FindAnyObjectByType<LevelUp>();
+        if (UILevelUp == null) UILevelUp = FindAnyObjectByType<LevelUpHandler>();
         if (UIResult == null) UIResult = FindAnyObjectByType<Result>(FindObjectsInactive.Include);
 
     }

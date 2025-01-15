@@ -15,10 +15,14 @@ MonoBehaviour:
   <Category>k__BackingField: 0
   <MaxLevel>k__BackingField: 5
   <ItemID>k__BackingField: 3
-  <ItemName>k__BackingField: "\uD3ED\uACA9\uAE30"
-  <ItemDescription>k__BackingField: "\uD50C\uB808\uC774\uC5B4 \uC8FC\uBCC0 \uB79C\uB364
-    \uC704\uCE58\uC5D0\uC11C \uD3ED\uBC1C\uD55C\uB2E4"
-  <ItemIcon>k__BackingField: {fileID: -4039912110816036059, guid: 3c112a44cc7dc7a468f4d132c2e7611c, type: 3}
+  <Name>k__BackingField: "\uD3ED\uACA9\uAE30"
+  <Descriptions>k__BackingField:
+  - "\uBB34\uC791\uC704 \uC704\uCE58 \uD3ED\uBC1C"
+  - "\uD3ED\uBC1C \uD69F\uC218 \uC99D\uAC00\n\uACF5\uACA9\uB825 3 \uC99D\uAC00"
+  - "\uD3ED\uBC1C \uD69F\uC218 \uC99D\uAC00\n\uACF5\uACA9\uB825 3 \uC99D\uAC00"
+  - "\uD3ED\uBC1C \uD69F\uC218 \uC99D\uAC00\n\uACF5\uACA9\uB825 4 \uC99D\uAC00"
+  - "\uD3ED\uBC1C \uD69F\uC218 \uC99D\uAC00\n\uACF5\uACA9\uB825 5 \uC99D\uAC00"
+  <Icon>k__BackingField: {fileID: -4039912110816036059, guid: 3c112a44cc7dc7a468f4d132c2e7611c, type: 3}
   <BulletData>k__BackingField: {fileID: 11400000, guid: 0dc20cb2fe99ef44288af328f78129fb, type: 2}
   <Weapon>k__BackingField: 3
   <Damages>k__BackingField:

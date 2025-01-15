@@ -6,15 +6,15 @@ public class WRandomGun : Weapon
 
     protected override void WeaponInit()
     {   // 불릿을 오브젝트 풀에 추가
-        PoolManager.Instance.Add(Data.BulletData);
+        PoolManager.Instance.Add(Status.BulletData);
 
-        name = nameof(WRandomGun) + Data.BulletData.DataID;
+        name = nameof(WRandomGun) + Status.BulletDataID;
     }
 
     public override void Attack()
     {
         // 공격 쿨타임이 끝났으면
-        if (timer * AttackSpeed < 1f)
+        if (timer * Status.AttackSpeed < 1f)
         {
             timer += Time.deltaTime;
             return;
@@ -22,13 +22,13 @@ public class WRandomGun : Weapon
         timer = 0f;
 
         // Count 횟수만큼 불릿 동시에 발사
-        for(int i = 0; i < Count; ++i)
+        for(int i = 0; i < Status.Count; ++i)
         {
             Fire();
         }
 
         // 효과음 재생
-        AudioManager.Instance.PlaySfx(Data.Sfx);
+        AudioManager.Instance.PlaySfx(Status.Sfx);
     }
 
     void Fire()
@@ -38,8 +38,8 @@ public class WRandomGun : Weapon
         Vector3 direction = rotation * Vector3.up;
 
         // 불릿 생성
-        Bullet bullet = (Bullet)PoolManager.Instance.Get(Data.BulletData.DataID);
+        Bullet bullet = (Bullet)PoolManager.Instance.Get(Status.BulletDataID);
         bullet.transform.SetPositionAndRotation(transform.position, Quaternion.FromToRotation(Vector3.up, direction));
-        bullet.Init(Damage, Penetration, direction * BulletVelocity, KnockBackForce);
+        bullet.Init(Status, Status.Penetration, direction * Status.BulletVelocity, Status.KnockBackForce);
     }
 }

@@ -15,10 +15,14 @@ MonoBehaviour:
   <Category>k__BackingField: 0
   <MaxLevel>k__BackingField: 5
   <ItemID>k__BackingField: 1
-  <ItemName>k__BackingField: "\uC5FD\uCD1D"
-  <ItemDescription>k__BackingField: "\uAC00\uAE4C\uC6B4 \uC801\uC5D0\uAC8C \uCD1D\uC54C
-    \uBC1C\uC0AC"
-  <ItemIcon>k__BackingField: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  <Name>k__BackingField: "\uC5FD\uCD1D"
+  <Descriptions>k__BackingField:
+  - "\uAC00\uAE4C\uC6B4 \uC801\uC5D0\uAC8C \uCD1D\uC54C \uBC1C\uC0AC"
+  - "\uBC1C\uC0AC\uCCB4 \uC99D\uAC00\n\uACF5\uACA9\uB825 2.5 \uC99D\uAC00"
+  - "\uBC1C\uC0AC\uCCB4 \uC99D\uAC00\n\uACF5\uACA9\uB825 3 \uC99D\uAC00"
+  - "\uBC1C\uC0AC\uCCB4 \uC99D\uAC00\n\uACF5\uACA9\uB825 3 \uC99D\uAC00"
+  - "\uBC1C\uC0AC\uCCB4 \uC99D\uAC00\n\uACF5\uACA9\uB825 5 \uC99D\uAC00"
+  <Icon>k__BackingField: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   <BulletData>k__BackingField: {fileID: 11400000, guid: 4f591ab525f2bf74da4faa04ec768aeb, type: 2}
   <Weapon>k__BackingField: 1
   <Damages>k__BackingField:

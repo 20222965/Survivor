@@ -47,7 +47,7 @@ public class PlayerEquipment : MonoBehaviour
         for (int i = 0; i < passives.Count; ++i)
         {
             var passive = passives[i];
-            if (passive.Data.ItemID == data.ItemID)
+            if (passive.CompareItem(data))
             {
                 passive.LevelUp();
 
@@ -78,7 +78,7 @@ public class PlayerEquipment : MonoBehaviour
     {
         for (int i = 0; i < weapons.Count; ++i)
         {
-            if (weapons[i].Data.ItemID == data.ItemID)
+            if (weapons[i].CompareItem(data))
             {
                 weapons[i].LevelUp();
                 return;
